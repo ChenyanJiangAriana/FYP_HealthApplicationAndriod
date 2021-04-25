@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CareYou</string>
+    <string name="spinner_prompt">Choose Actor</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_register">RegisterActivity</string>
+
+    <!--新版登录专用-->
+    <string name="login">Login</string>
+    <string name="login_input_username_hint">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login_hold_hint">login in automatic</string>
+    <string name="login_forget_hint">Forget your password?</string>
+    <string name="login_register_hint">Register </string>
+    <string name="login_other_hint">login in other way</string>
+    <string name="register_input_username_hint">Phone Number</string>
+    <string name="register_username_hint">Username</string>
+    <string name="register_sms_auth_code">message for identification</string>
+    <string name="register_sms_hint">attain your </string>
+    <string name="register_sms_wait_hint">have a rest&#8230;</string>
+
+    <string name="loading_image">Loading...</string>
+    <string name="register_done_hint">finish</string>
+    <string name="register_man_hint">man</string>
+    <string name="register_female_hint">woman</string>
+    <string name="retrieve_pwd_step_hint">next step</string>
+    <string name="retrieve_pwd_email_label_one">please find the password if email users</string>
+    <string name="retrieve_pwd_email_label"><a>click here</a></string>
+    <string name="reset_pwd_hint">please enter at least 6 digits</string>
+    <string name="register_pwd_hint">please enter at least 6 digits</string>
+    <string name="reset_pwd_submit">confirm</string>
+    <string name="message_pwd_error">worry password</string>
+    <string name="message_username_null">username is empty!!</string>
+    <string name="action_settings">Settings</string>
+    <string name="setting">&#x3434;</string>
+    <string name="inquire_management">inquire management</string>
+    <string name="reply_management">reply management</string>
+</resources>

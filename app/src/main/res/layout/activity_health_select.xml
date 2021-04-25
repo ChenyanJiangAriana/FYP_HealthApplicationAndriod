@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray"
+    tools:context="com.jk.dayu.jkapp.com.jk.Ariana.jkapp.HealthModule.HealthSelectActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Health Test"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Basic test: BMI index (namely body mass index, body mass index for short, body mass index for short, body mass index for short, BMI for short) is a number obtained by dividing the weight in kilograms by the square of the height in meters. It is currently commonly used in the world. A measure of the body's fatness and thinness and whether it is a standard for health. It is mainly used for statistical purposes. When we need to compare and analyze the health effects of a person's weight on people of different heights, the BMI value is a neutral and reliable indicator."
+            android:textColor="@color/color_main" />
+
+        <Button
+            android:id="@+id/baseBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/cricle_btn"
+            android:onClick="gotoBaseHealth"
+            android:text="basic test"
+            android:textColor="@color/bg_white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:text="Advanced testing: including commonly used physiological indicators, including blood pressure, blood sugar and other common indicators."
+            android:textColor="@color/color_main" />
+
+        <Button
+            android:id="@+id/advanceBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/cricle_btn"
+            android:onClick="gotoAdvance"
+            android:text="advanced test"
+            android:textColor="@color/bg_white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_black">
+
+        <RadioGroup
+            android:id="@+id/rg_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/tab_menu_item"
+                android:drawableTop="@drawable/tab_menu_home"
+                android:text="Home" />
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>
