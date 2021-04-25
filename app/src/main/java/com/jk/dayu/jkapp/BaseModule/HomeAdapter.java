@@ -80,9 +80,9 @@ public class HomeAdapter extends BaseAdapter {
             TextView txt_date = view.findViewById(R.id.txt_date);
 
             if (bean.bmi == null){
-                txt_health.setText("点击健康测试");
+                txt_health.setText("click to test your health condition");
             }else {
-                txt_health.setText("BMI值:"+bean.bmi);
+                txt_health.setText("the value of BMI:"+bean.bmi);
                 txt_date.setText(bean.date);
             }
         }

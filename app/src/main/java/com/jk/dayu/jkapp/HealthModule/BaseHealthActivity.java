@@ -89,7 +89,7 @@ public class BaseHealthActivity extends BaseActivity implements RadioGroup.OnChe
         health.date = DataManager.currentTime();
         resultView.setText(resultStr);
 
-        Toast.makeText(this, "测试完成！奖励10积分！", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Test completed! 10 bonus points!", Toast.LENGTH_LONG).show();
         Object param = DataManager.getParam(this, "id", "", "userInfo");
         String id = String.valueOf(param);
         List<String> queryParamList2 = new ArrayList<>();

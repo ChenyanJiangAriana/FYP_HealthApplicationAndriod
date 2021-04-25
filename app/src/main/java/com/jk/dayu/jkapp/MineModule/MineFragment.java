@@ -36,7 +36,7 @@ public class MineFragment extends Fragment {
     ListView listView;
     public TextView txt_name;
     public TextView txt_point;
-    private String[] mListStr = {"打卡记录","健康报告","今日运动","在线问诊","退出登录"};
+    private String[] mListStr = {"Clock in","Health Report","Exercise","Online Inquiry","Log out"};
     public MineFragment() {
         // Required empty public constructor
     }
@@ -54,7 +54,7 @@ public class MineFragment extends Fragment {
             List<UserBean> list = DbUtils.getQueryByWhere(UserBean.class, queryParamList,valueList);
             if (list.size()>0){
                 txt_name.setText(list.get(0).getUsername());
-                txt_point.setText("积分: "+list.get(0).getPoint());
+                txt_point.setText("score: "+list.get(0).getPoint());
             }
         }
         super.onResume();

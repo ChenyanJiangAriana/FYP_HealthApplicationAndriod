@@ -57,7 +57,7 @@ public class AddTimeActivity extends BaseActivity implements RadioGroup.OnChecke
         userList.get(0).setPoint(point+"");
         DbUtils.update(userList.get(0));
         NotiManager.addAlert(this,time.time,time.tip,list.get(0).getId());
-        Toast.makeText(this,"保存成功！奖励10积分！",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Save completed! 10 bonus points!",Toast.LENGTH_LONG).show();
     }
 
     @SuppressLint("NonConstantResourceId")

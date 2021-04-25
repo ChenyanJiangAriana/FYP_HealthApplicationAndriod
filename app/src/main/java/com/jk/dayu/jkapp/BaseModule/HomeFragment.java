@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
         String weather = getWeather();
         HomeBean home3 = new HomeBean(HomeAdapter.TYPE_WEATHER);
         if (weather.equals("")){
-            home3.time = "暂无网络连接";
+            home3.time = "No internet";
             home3.tip = "";
             home3.date = "";
             dataList.add(home3);
@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
         // 健康提示
         List<TimeBean> timeList = DataManager.timeBean(getActivity());
         if (timeList==null||timeList.size()==0){
-            HomeBean home = new HomeBean(HomeAdapter.TYPE_TIME,"点击添加提示","");
+            HomeBean home = new HomeBean(HomeAdapter.TYPE_TIME,"Click here to add your reminder","");
             dataList.add(home);
         }else {
             for(TimeBean time:timeList){
@@ -142,17 +142,17 @@ public class HomeFragment extends Fragment {
                 if (position<=2) return true;
                 //定义AlertDialog.Builder对象，当长按列表项的时候弹出确认删除对话框
                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                builder.setMessage("确定删除?");
-                builder.setTitle("提示");
+                builder.setMessage("delete confirm?");
+                builder.setTitle("reminder");
                 //添加AlertDialog.Builder对象的setPositiveButton()方法
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dataList.remove(position);
                         List<TimeBean> timeList = DataManager.timeBean(getActivity());
                         DataManager.remove(getActivity(), timeList.get(position-3));
                         if(dataList.size()==3){
-                            HomeBean home = new HomeBean(HomeAdapter.TYPE_TIME,"点击添加提示","");
+                            HomeBean home = new HomeBean(HomeAdapter.TYPE_TIME,"Click to add reminder","");
                             dataList.add(home);
                         }
                         HomeAdapter adapter = new HomeAdapter(getActivity(), dataList);
@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment {
                 });
 
                 //添加AlertDialog.Builder对象的setNegativeButton()方法
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {}
                 });

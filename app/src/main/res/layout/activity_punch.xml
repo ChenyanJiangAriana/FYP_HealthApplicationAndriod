@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.jk.dayu.jkapp.com.jk.Ariana.jkapp.UserModule.PunchActivity">
+    tools:context="com.jk.dayu.jkapp.com.jk.Ariana.UserModule.PunchActivity">
 
     <!--    <TextView-->
     <!--        android:layout_marginTop="20dp"-->

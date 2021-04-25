@@ -36,11 +36,11 @@ public class AddConditionFragment extends Fragment {
         final long did = Long.parseLong(strDid);
         final List<String> data_list = new ArrayList<>();
         data_list.add("");
-        data_list.add("三天以内");
-        data_list.add("一周以内");
-        data_list.add("一月以内");
-        data_list.add("一年以内");
-        data_list.add("一年以上");
+        data_list.add("Within 3 days");
+        data_list.add("Within a week");
+        data_list.add("Within one month");
+        data_list.add("Within one year");
+        data_list.add("More than one year");
         final Condition condition = new Condition();
         time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,9 +63,9 @@ public class AddConditionFragment extends Fragment {
                 condition.setDetails(details.getText().toString());
                 String result = myThreadUtil.myThread(Service.saveCondition, JSONObject.toJSONString(condition));
                 if (result.equals("success")){
-                    Toast.makeText(getActivity(), "提交成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "submit successfully", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getActivity(), "提交失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "submit failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });

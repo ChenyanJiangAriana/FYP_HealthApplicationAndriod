@@ -223,14 +223,14 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
         else if (numSteps >= 100000)
             showSteps.setTextSize(55);
         else if (numSteps >= 10000) {
-            notifyIsUpToStandard( "太棒了，你今天超过1万步了");
+            notifyIsUpToStandard( "Great, you're over 10,000 steps today");
             showSteps.setTextSize(60);
         }
 
         else {
             showSteps.setTextSize(66);
-            if (numSteps>=5000) notifyIsUpToStandard("加油，你已经再走走你就达到1万步了");
-            else notifyIsUpToStandard("你今天都没怎么走路，快出门运动吧");
+            if (numSteps>=5000) notifyIsUpToStandard("Come on, you have to walk again you will reach 10,000 steps");
+            else notifyIsUpToStandard("You haven't walked much today, go out and exercise");
         }
         showSteps.setText(text);
 

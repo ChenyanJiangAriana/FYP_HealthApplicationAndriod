@@ -521,7 +521,7 @@ public class HeartBeatActivity extends BaseActivity {
             hb.name = list2.get(0).getUsername();
             DataManager.saveHealthBean(this,hb);
 
-            Toast.makeText(this,"测试完成！奖励10积分！",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Test completed! 10 bonus points!",Toast.LENGTH_LONG).show();
             List<String> queryParamList2 = new ArrayList<>();
             List<String> valueList2 = new ArrayList<>();
             queryParamList2.add("id");
@@ -530,7 +530,7 @@ public class HeartBeatActivity extends BaseActivity {
             int point = Integer.parseInt(userList.get(0).getPoint())+10;
             userList.get(0).setPoint(point+"");
             DbUtils.update(userList.get(0));
-            Toast.makeText(this, "测试完成！奖励10积分！", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Test completed! 10 bonus points!", Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -51,7 +51,7 @@ public class PunchActivity extends BaseActivity implements DatePickerView.OnClic
         int point = Integer.parseInt(userList.get(0).getPoint())+10;
         userList.get(0).setPoint(point+"");
         DbUtils.update(userList.get(0));
-        Toast.makeText(this, "测试完成！奖励10积分！", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Test completed! 10 bonus points!", Toast.LENGTH_LONG).show();
     }
 
     private void init() {
