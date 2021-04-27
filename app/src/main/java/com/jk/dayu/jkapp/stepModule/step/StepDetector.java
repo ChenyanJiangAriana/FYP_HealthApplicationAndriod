@@ -4,7 +4,6 @@ import android.util.Log;
 
 import java.math.BigDecimal;
 
-
 public class StepDetector {
     private final int DELAY = 100;
     private final int MAX_DELAY = 600;

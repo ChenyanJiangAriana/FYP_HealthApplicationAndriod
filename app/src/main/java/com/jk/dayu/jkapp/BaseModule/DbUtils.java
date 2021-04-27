@@ -21,6 +21,8 @@ public class DbUtils {
     //万能查询
     public static <T> List<T> getQueryByWhere(Class<T> tClass, List<String> queryParamList,List<String> valueList) {
         if (queryParamList.size()!=valueList.size()){
+            System.out.println(queryParamList);
+            System.out.println(valueList);
             throw new RuntimeException("Request parameter key-value pairs do not match");
         }
         for (int i = 0; i <queryParamList.size() ; i++) {

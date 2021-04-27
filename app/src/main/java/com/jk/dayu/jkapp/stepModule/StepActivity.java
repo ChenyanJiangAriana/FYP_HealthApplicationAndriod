@@ -147,7 +147,7 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
         for (i = 0; i < data.length; i++) {
             mPointValues.add(new PointValue(i, data[i]));
         }
-        initLineChart();//初始化
+        initLineChart();//初始化 init the chart
 
     }
 
@@ -155,12 +155,15 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
         Line line = new Line(mPointValues).setColor(Color.parseColor("#ee7800"));  //折线的颜色（橙色）
         List<Line> lines = new ArrayList<>();
         line.setShape(ValueShape.CIRCLE);//折线图上每个数据点的形状  这里是圆形 （有三种 ：ValueShape.SQUARE  ValueShape.CIRCLE  ValueShape.DIAMOND）
-        line.setCubic(true);//曲线是否平滑，即是曲线还是折线
-        line.setFilled(true);//是否填充曲线的面积
-        line.setHasLabels(true);//曲线的数据坐标是否加上备注
+        //Shape of each data point on the line chart Here is a circle (there are three types: ValueShape.SQUARE ValueShape.CIRCLE ValueShape.DIAMOND)
+        line.setCubic(true);//曲线是否平滑，即是曲线还是折线Whether the curve is smooth, i.e. whether it is a curve or a line
+        line.setFilled(true);//是否填充曲线的面积Whether to fill the area of the curve
+        line.setHasLabels(true);//曲线的数据坐标是否加上备注Whether the data coordinates of the curve are annotated
 //      line.setHasLabelsOnlyForSelected(true);//点击数据坐标提示数据（设置了这个line.setHasLabels(true);就无效）
         line.setHasLines(true);//是否用线显示。如果为false 则没有曲线只有点显示
+        // If or not to display with lines. If false, then no curves are displayed, only dots.
         line.setHasPoints(true);//是否显示圆点 如果为false 则没有原点只有点显示（每个数据点都是个大的圆点）
+        //Whether to display dots If false then no origin only dots are displayed (each data point is a large dot)
         lines.add(line);
         LineChartData data = new LineChartData();
         data.setLines(lines);
@@ -291,6 +294,7 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
 //        });
 
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // If you don't set the background of PopupWindow, you can't dismiss the popup box either by clicking on the external area or Back button.
         // 我觉得这里是API的一个bug
 //        popupWindow.setBackgroundDrawable(getResources().getDrawable(
 //                R.drawable.selectmenu_bg_downward));
@@ -322,9 +326,9 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
 
     public void showAbout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("关于");
+        builder.setTitle("about");
         builder.setIcon(R.mipmap.ic_launcher);
-        builder.setPositiveButton("确定", null);
+        builder.setPositiveButton("confirm", null);
         builder.setCancelable(true);
         View mview = LayoutInflater.from(this).inflate(R.layout.about_me, null);
         TextView t = mview.findViewById(R.id.version_name);
@@ -403,7 +407,7 @@ public class StepActivity extends AppCompatActivity implements CompoundButton.On
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (isServiceRun != temp) {
             if (!isServiceRun) {
-                Toast.makeText(getApplicationContext(), "计步服务意外终止,请把应用加入白名单",
+                Toast.makeText(getApplicationContext(), "Pedometer service is terminated unexpectedly, please add the application to the whitelist",
                         Toast.LENGTH_LONG).show();
             }
             editor.putBoolean("switch_on", isServiceRun);

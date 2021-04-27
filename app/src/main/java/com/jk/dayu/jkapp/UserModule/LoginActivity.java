@@ -61,15 +61,15 @@ public class LoginActivity extends BaseActivity {
         String accountT = account.getText().toString().trim();
         String pwdT = pwd.getText().toString().trim();
         if (accountT.length() < 3) {
-            Toast.makeText(this, "用户名不小于3位", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "username should at least 3 characters", Toast.LENGTH_LONG).show();
             return;
         }
         if (pwdT.length() < 6) {
-            Toast.makeText(this, "密码不小于6位", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "password at least 6 ", Toast.LENGTH_LONG).show();
             return;
         }
         if (!rb1.isChecked() && !rb2.isChecked()) {
-            Toast.makeText(this, "请选择用户角色", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "please choose your role", Toast.LENGTH_LONG).show();
             return;
         }
         if (rb1.isChecked()) {
@@ -85,7 +85,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
                 finish();
             } else {
-                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "username and password worry", Toast.LENGTH_SHORT).show();
             }
         } else {
             doctor.setRole("1");
@@ -100,7 +100,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
                 finish();
             } else {
-                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "username or password worry", Toast.LENGTH_SHORT).show();
             }
         }
     }

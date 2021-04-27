@@ -64,8 +64,8 @@ public class StepService extends Service {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("计步器")
-                        .setContentText("正在运行");
+                        .setContentTitle("Pedometer")//Pedometer=计步器
+                        .setContentText("running");
 
         Intent notificationIntent = new Intent(this, StepActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
