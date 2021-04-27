@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:queryHint="请输入要搜索的关键字"></SearchView>
+        android:queryHint="Please enter the keywords you want to search for"></SearchView>
 
     <ListView
         android:id="@+id/listView"

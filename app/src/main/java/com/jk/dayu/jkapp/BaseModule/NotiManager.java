@@ -18,8 +18,8 @@ public class NotiManager {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
         Notification notification = mBuilder
                 .setContentText(content)
-                .setContentTitle("健康提示")
-                .setSubText("进行时间："+date)
+                .setContentTitle("health reminder")
+                .setSubText("time："+date)
                 .setSmallIcon(R.mipmap.logo)
                 .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
                 .setContentIntent(hangPendingIntent)

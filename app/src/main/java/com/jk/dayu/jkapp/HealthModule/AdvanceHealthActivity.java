@@ -39,7 +39,7 @@ public class AdvanceHealthActivity extends BaseActivity implements RadioGroup.On
         resultView = findViewById(R.id.result);
 
         radioGroup = findViewById(R.id.rg_tab_bar);
-        radioGroup.setOnCheckedChangeListener(this);// 当然也可以使用匿名内部类实现
+        radioGroup.setOnCheckedChangeListener(this);// Of course, you can also use anonymous internal classes to implement
 
     }
 
@@ -56,7 +56,7 @@ public class AdvanceHealthActivity extends BaseActivity implements RadioGroup.On
         if (txt_low_press.getText().toString() == ""
                 || txt_high_press.getText().toString() == ""
                 || txt_bless_suger.getText().toString() == "") {
-            Toast.makeText(this, "请输入信息后重试", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter a message and try again", Toast.LENGTH_LONG).show();
             return;
         }
 

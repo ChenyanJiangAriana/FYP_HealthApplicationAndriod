@@ -62,7 +62,7 @@ public class BaseHealthActivity extends BaseActivity implements RadioGroup.OnChe
         if (txt_height.getText().toString() == ""
                 || txt_wight.getText().toString() == ""
                 || txt_age.getText().toString() == "") {
-            Toast.makeText(this, "请输入信息后重试", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter the information and try again", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -79,11 +79,11 @@ public class BaseHealthActivity extends BaseActivity implements RadioGroup.OnChe
         String bmi = String.valueOf(result);
 
         if (result < 18.5) {
-            resultStr = "BMI值为:" + bmi + "   体重过低";
+            resultStr = "BMI value is:" + bmi + "    Underweight ";
         } else if (result >= 18.5 && result < 24.9) {
-            resultStr = "BMI值为:" + bmi + "   正常范围";
+            resultStr = "BMI value is:" + bmi + "   Normal range";
         } else {
-            resultStr = "BMI值为:" + bmi + "   注意减肥啦，超重啦";
+            resultStr = "BMI value is:" + bmi + "   Attention to weight loss, overweight";
         }
         health.bmi = bmi;
         health.date = DataManager.currentTime();

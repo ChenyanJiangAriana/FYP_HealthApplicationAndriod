@@ -20,11 +20,11 @@ public class HomeAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
 
-    public static int TYPE_STEP = 1; // 步数
-    public static int TYPE_WEATHER = 2; // 天气
-    public static int TYPE_HEALTH = 3; // 健康
-    public static int TYPE_TIME = 4; // 定时
-    private final int TYPE_COUNT = 2; // 总个数
+    public static int TYPE_STEP = 1; // 步数 step
+    public static int TYPE_WEATHER = 2; // 天气 weather
+    public static int TYPE_HEALTH = 3; // 健康 health
+    public static int TYPE_TIME = 4; // 定时 clock reminder
+    private final int TYPE_COUNT = 2; // 总个数 overall number
 
     public HomeAdapter(Context context,List dataList){
         this.context = context;

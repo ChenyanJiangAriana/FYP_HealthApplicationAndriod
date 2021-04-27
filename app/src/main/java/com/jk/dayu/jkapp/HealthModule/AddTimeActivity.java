@@ -35,7 +35,7 @@ public class AddTimeActivity extends BaseActivity implements RadioGroup.OnChecke
 
     public void save(View view){
         if (txt_name.getText().toString().equals("") || txt_time.getText().toString().equals("")){
-            Toast.makeText(this,"请输入信息后重试",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please enter the information and try again",Toast.LENGTH_LONG).show();
             return;
         }
         TimeBean time = new TimeBean();

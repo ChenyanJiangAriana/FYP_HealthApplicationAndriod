@@ -21,11 +21,11 @@ public class DbUtils {
     //万能查询
     public static <T> List<T> getQueryByWhere(Class<T> tClass, List<String> queryParamList,List<String> valueList) {
         if (queryParamList.size()!=valueList.size()){
-            throw new RuntimeException("请求参数键值对不匹配");
+            throw new RuntimeException("Request parameter key-value pairs do not match");
         }
         for (int i = 0; i <queryParamList.size() ; i++) {
             if (StringUtil.isEmpty(queryParamList.get(i)) || StringUtil.isEmpty(valueList.get(i))){
-                throw new RuntimeException("对应请求参数缺少key或value");
+                throw new RuntimeException("Missing key or value for the corresponding request parameter");
             }
         }
         String querySql ="1=1";
@@ -113,7 +113,7 @@ public class DbUtils {
 //        }
 
     /**
-     * 删除所有
+     * delete all
      *
      * @param cla
      */

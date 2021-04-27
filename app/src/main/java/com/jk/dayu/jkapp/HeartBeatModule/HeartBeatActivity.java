@@ -99,15 +99,15 @@ public class HeartBeatActivity extends BaseActivity {
     public static TYPE getCurrent() {
         return currentType;
     }
-    //心跳下标值
+    //心跳下标值 Heart rate subscript value
     private static int beatsIndex = 0;
-    //心跳数组的大小
+    //心跳数组的大小 The size of the heartbeat array
     private static final int beatsArraySize = 3;
-    //心跳数组
+    //心跳数组 Heartbeat Arrays
     private static final int[] beatsArray = new int[beatsArraySize];
-    //心跳脉冲
+    //心跳脉冲 Heartbeat Pulse
     private static double beats = 0;
-    //开始时间
+    //开始时间 Start time
     private static long startTime = 0;
 
     private static String saveHb = "";
@@ -130,32 +130,41 @@ public class HeartBeatActivity extends BaseActivity {
         context = getApplicationContext();
 
         //这里获得main界面上的布局，下面会把图表画在这个布局里面
+        //Here we get the layout on the main screen, and we will draw the chart in this layout below
         LinearLayout layout = findViewById(R.id.id_linearLayout_graph);
 
         //这个类用来放置曲线上的所有点，是一个点的集合，根据这些点画出曲线
+        //This class is used to place all the points on the curve, and is a collection of points from which the curve is drawn
         series = new XYSeries(title);
 
         //创建一个数据集的实例，这个数据集将被用来创建图表
+        //Create an instance of the dataset that will be used to create the chart
         mDataset = new XYMultipleSeriesDataset();
 
         //将点集添加到这个数据集中
+        //Add the point set to this dataset
         mDataset.addSeries(series);
 
         //以下都是曲线的样式和属性等等的设置，renderer相当于一个用来给图表做渲染的句柄
+        //The following are settings for the style and properties of the curve, etc. The renderer is equivalent to a handle used to render the chart
         int color = Color.GREEN;
         PointStyle style = PointStyle.CIRCLE;
         renderer = buildRenderer(color, style, true);
 
         //设置好图表的样式
+        //Set the style of the chart
         setChartSettings(renderer, "X", "Y", 0, 300, 4, 16, Color.WHITE, Color.WHITE);
 
         //生成图表
+        //Generate charts
         chart = ChartFactory.getLineChartView(context, mDataset, renderer);
 
         //将图表添加到布局中去
+        //Adding charts to the layout
         layout.addView(chart, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
         //这里的Handler实例将配合下面的Timer实例，完成定时更新图表的功能
+        //The Handler instance here will work with the following Timer instance to complete the function of updating the chart at regular intervals
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -175,7 +184,7 @@ public class HeartBeatActivity extends BaseActivity {
         };
 
         timer.schedule(task, 1,20);           //曲线
-        //获取SurfaceView控件
+        //获取SurfaceView控件 Get SurfaceView control
         preview = findViewById(R.id.id_preview);
         previewHolder = preview.getHolder();
         previewHolder.addCallback(surfaceCallback);
@@ -206,6 +215,7 @@ public class HeartBeatActivity extends BaseActivity {
         XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
 
         //设置图表中曲线本身的样式，包括颜色、点的大小以及线的粗细等
+        // Set the style of the curve itself in the chart, including the color, the size of the points, and the thickness of the line
         XYSeriesRenderer r = new XYSeriesRenderer();
         r.setColor(Color.RED);
         r.setLineWidth(1);
@@ -260,8 +270,8 @@ public class HeartBeatActivity extends BaseActivity {
             flag = 1;
             if(gx < 200){
                 if(hua[20] > 1){
-                    mTV_Heart_Test.setText("请用您的指尖盖住摄像头镜头！");
-//                    Toast.makeText(HeartBeatActivity.this, "请用您的指尖盖住摄像头镜头！", Toast.LENGTH_SHORT).show();
+                    mTV_Heart_Test.setText("Please cover the camera lens with your fingertips！");
+//                    Toast.makeText(HeartBeatActivity.this, "Please cover the camera lens with your fingertips！", Toast.LENGTH_SHORT).show();
                     hua[20] = 0;
                 }
                 hua[20]++;
@@ -277,10 +287,11 @@ public class HeartBeatActivity extends BaseActivity {
             j++;
         }
 
-        //移除数据集中旧的点集
+        //移除数据集中旧的点集Remove old point sets from the dataset
         mDataset.removeSeries(series);
 
         //判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
+        //Determine how many points are in the current point set, because the screen can only hold a total of 100, so when the number of points exceeds 100, the length is always 100
         int length = series.getItemCount();
         int bz = 0;
         //addX = length;
@@ -290,24 +301,30 @@ public class HeartBeatActivity extends BaseActivity {
         }
         addX = length;
         //将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
+        //Take the x and y values from the old point set and put them in the backup, and add 1 to the x value to cause the curve to shift to the right.
         for (int i = 0; i < length; i++) {
             xv[i] = (int) series.getX(i) - bz;
             yv[i] = (int) series.getY(i);
         }
 
         //点集先清空，为了做成新的点集而准备
+        //The point set is emptied first, in preparation for making a new point set
         series.clear();
         mDataset.addSeries(series);
         //将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
+        //The newly generated points are first added to the point set, and then a series of points are added back to the point set after the coordinate transformation in the loop body
         //这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
+        //Here you can experiment with the effect of reversing the order, i.e. running the loop body first and then adding the newly generated points
         series.add(addX, addY);
         for (int k = 0; k < length; k++) {
             series.add(xv[k], yv[k]);
         }
         //在数据集中添加新的点集
+        //Add a new point set to the dataset
         //mDataset.addSeries(series);
 
         //视图更新，没有这一步，曲线不会呈现动态
+        //View update, without this step, the curve will not appear dynamic
         //如果在非UI主线程中，需要调用postInvalidate()，具体参考api
         chart.invalidate();
     } //曲线
@@ -357,16 +374,16 @@ public class HeartBeatActivity extends BaseActivity {
             int width = size.width;
             int height = size.height;
 
-            //图像处理 计算出平均像素值
+            //Image processing Calculate the average pixel value
             int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),height,width);
             gx = imgAvg;
-            mTV_Avg_Pixel_Values.setText("平均像素值是" + imgAvg);
+            mTV_Avg_Pixel_Values.setText("The average pixel value is" + imgAvg);
 
             if (imgAvg == 0 || imgAvg == 255) {
                 processing.set(false);
                 return;
             }
-            //计算平均值
+            //Calculate the average value
             int averageArrayAvg = 0;
             int averageArrayCnt = 0;
             for (int i = 0; i < averageArray.length; i++) {
@@ -375,8 +392,8 @@ public class HeartBeatActivity extends BaseActivity {
                     averageArrayCnt++;
                 }
             }
-//            Log.d("脉冲数组", averageArray.toString());
-            //计算平均值
+//            Log.d("Pulse array", averageArray.toString());
+            //Calculate the average value
             int rollingAverage = (averageArrayCnt > 0)?(averageArrayAvg/averageArrayCnt):0;
             TYPE newType = currentType;
             if (imgAvg < rollingAverage) {
@@ -384,8 +401,8 @@ public class HeartBeatActivity extends BaseActivity {
                 if (newType != currentType) {
                     beats++;
                     flag=0;
-//                    mTV_pulse.setText("脉冲数是" + String.valueOf(beats));
-//                    Log.d("脉冲数",String.valueOf(System.currentTimeMillis()));
+//                    mTV_pulse.setText("The number of pulses is" + String.valueOf(beats));
+//                    Log.d("Number of pulses",String.valueOf(System.currentTimeMillis()));
                 }
             } else if (imgAvg > rollingAverage) {
                 newType = TYPE.GREEN;
@@ -401,16 +418,16 @@ public class HeartBeatActivity extends BaseActivity {
                 currentType = newType;
             }
 
-            //获取系统结束时间（ms）
+            //Get system end time（ms）
             long endTime = System.currentTimeMillis();
             double totalTimeInSecs = (endTime - startTime) / 1000d;
             if (totalTimeInSecs >= 2) {
                 double bps = (beats / totalTimeInSecs);
                 int dpm = (int) (bps * 60d);
                 if (dpm < 30 || dpm > 180|| imgAvg < 200) {
-                    //获取系统开始时间（ms）
+                    //Get system start time（ms）
                     startTime = System.currentTimeMillis();
-                    //beats心跳总数
+                    //beats heartbeat total
                     beats = 0;
                     processing.set(false);
                     return;
@@ -433,15 +450,15 @@ public class HeartBeatActivity extends BaseActivity {
                 int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
                 String beat = String.valueOf(beatsAvg);
                 saveHb = beat;
-                mTV_Heart_Rate.setText("心率："+beat+"次/分");
+                mTV_Heart_Rate.setText("Heart rate："+beat+"time/min");
 
 //                mTV_Heart_Test.setText(String.valueOf(beatsAvg) +
-//                        "  值" + String.valueOf(beatsArray.length) +
+//                        "  value" + String.valueOf(beatsArray.length) +
 //                        "    " + String.valueOf(beatsIndex) +
 //                        "    " + String.valueOf(beatsArrayAvg) +
 //                        "    " + String.valueOf(beatsArrayCnt));
 
-                //获取系统时间（ms）
+                //Get system time（ms）
                 startTime = System.currentTimeMillis();
                 beats = 0;
             }
@@ -450,10 +467,10 @@ public class HeartBeatActivity extends BaseActivity {
     };
 
     /**
-     * 预览回调接口
+     * Preview callback interface
      */
     private static SurfaceHolder.Callback surfaceCallback = new SurfaceHolder.Callback() {
-        //创建时调用
+        //Called on creation
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
             try {
@@ -464,7 +481,7 @@ public class HeartBeatActivity extends BaseActivity {
             }
         }
 
-        //当预览改变的时候回调此方法
+        //Call back this method when the preview changes
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width,int height) {
             Camera.Parameters parameters = camera.getParameters();
@@ -477,7 +494,7 @@ public class HeartBeatActivity extends BaseActivity {
             camera.startPreview();
         }
 
-        //销毁的时候调用
+        //Called at the time of destruction
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
 
@@ -485,7 +502,7 @@ public class HeartBeatActivity extends BaseActivity {
     };
 
     /**
-     * 获取相机最小的预览尺寸
+     * Get the smallest preview size of the camera
      */
     private static Camera.Size getSmallestPreviewSize(int width, int height, Camera.Parameters parameters) {
         Camera.Size result = null;

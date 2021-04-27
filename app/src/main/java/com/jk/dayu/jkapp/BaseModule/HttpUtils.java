@@ -31,18 +31,18 @@ public class HttpUtils {
                     URLConnection conn;
                     try {
                         URL geturl = new URL(url);
-                        conn = geturl.openConnection();//创建连接
-                        conn.connect();//get连接
-                        isr = new InputStreamReader(conn.getInputStream());//输入流
+                        conn = geturl.openConnection();//创建连接 build up connection
+                        conn.connect();//get连接 get connection
+                        isr = new InputStreamReader(conn.getInputStream());//输入流 input data
                         br = new BufferedReader(isr);
                         String line = null;
                         while ((line = br.readLine()) != null) {
-                            sb.append(line);//获取输入流数据
+                            sb.append(line);//获取输入流数据 get the input data
                         }
                         System.out.println(sb.toString());
                     } catch (Exception e) {
                         e.printStackTrace();
-                    } finally {//执行流的关闭
+                    } finally {//执行流的关闭 close
                         if (br != null) {
                             try {
                                 if (br != null) {
@@ -60,7 +60,7 @@ public class HttpUtils {
             new Thread(task).start();
             String s = null;
             try {
-                s = task.get();//异步获取返回值
+                s = task.get();//Get the return value asynchronously 异步
             } catch (Exception e) {
                 e.printStackTrace();
             }

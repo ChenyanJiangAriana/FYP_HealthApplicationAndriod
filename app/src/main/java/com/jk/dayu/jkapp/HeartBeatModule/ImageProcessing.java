@@ -1,12 +1,12 @@
 package com.jk.dayu.jkapp.HeartBeatModule;
 
 /**
- * 图像处理类
+ * Image processing class
  */
 public abstract class ImageProcessing {
 
 	/**
-	 * 内部调用的处理图片的方法
+	 * Internal calls for processing images
 	 */
 	private static int decodeYUV420SPtoRedSum(byte[] yuv420sp , int width , int height) {
 		if (yuv420sp == null) {
@@ -64,7 +64,7 @@ public abstract class ImageProcessing {
 	}
 
 	/**
-	 * 对外开放的图像处理方法
+	 * Image processing methods open to the public
 	 */
 	public static int decodeYUV420SPtoRedAvg(byte[] yuv420sp , int width , int height) {
 		if (yuv420sp == null) {

@@ -28,7 +28,7 @@ import java.util.List;
 public class DataManager {
 
     public static LiteOrm liteOrm;
-    //新加
+    //新加 new added
     public static void setParam(Context context,String key,Object defaultObjectValue,String filename){
         SharedPreferencesUtils sp = new SharedPreferencesUtils(context,filename);
         sp.setParam(key,defaultObjectValue);
@@ -124,7 +124,7 @@ public class DataManager {
         }
     }
 
-    // 健康提示
+    // 健康提示 health reminder
     public static List<TimeBean> timeBean(Context context){
         String name = DataManager.currentUserName(context);
         List<TimeBean> list = DbUtils.getQueryByWhere(TimeBean.class,"name",new String[]{name});
@@ -145,7 +145,7 @@ public class DataManager {
         DbUtils.insert(timeBean);
     }
 
-    // 打卡记录
+    // 打卡记录 record of clock in
     public static List<PunchBean> punchBean(Context context){
         String name = DataManager.currentUserName(context);
         List<PunchBean> list = DbUtils.getQueryByWhere(PunchBean.class,"name",new String[]{name});
@@ -172,21 +172,21 @@ public class DataManager {
         }
     }
 
-    // 是否登录
+    // whether it is login
     public static boolean isLogin(Context context){
         Object param = DataManager.getParam(context, "id", "", "userInfo");
         String id = String.valueOf(param);
         return StringUtil.isNotEmpty(id);
     }
 
-    // 用户是否存在
+    // check whether user is exists
     public static Boolean userExist(Context context,String name){
         List<UserBean> list = DbUtils.getQueryByWhere(UserBean.class,"name",new String[]{name});
         Log.i("list", list.toString());
         return list.size() == 1;
     }
 
-    // 健康报告
+    // Health report
     public static String healthReport(Context context){
         String report = "";
         HealthBean health = DataManager.healthBean(context);
@@ -194,11 +194,11 @@ public class DataManager {
             float bmif = Float.parseFloat(health.bmi);
             String bmi = health.bmi;
             if (bmif < 18.5) {
-                report += "BMI值为:" + bmi + "   体重过低 ;";
+                report += "BMI value is :" + bmi + " Underweight ;";
             } else if (bmif >= 18.5 && bmif < 24.9) {
-                report += "BMI值为:" + bmi + "   正常范围 ;";
+                report += "BMI value is :" + bmi + "   Normal range ;";
             } else {
-                report += "BMI值为:" + bmi + "   注意减肥啦，超重啦 ;";
+                report += "BMI value:" + bmi + "Attention to weight loss, overweight    ;";
             }
         }
 
@@ -206,39 +206,39 @@ public class DataManager {
             float lowf = Float.parseFloat(health.presslow);
             float highf = Float.parseFloat(health.presslow);
             if (lowf<60||highf<90){
-                report += "血压过低  ;";
+                report += "low blood pressure  ;";
             }else if (lowf>90||highf>140){
-                report += "血压过高  ;";
+                report += "too high blood pressure  ;";
             }else {
-                report += "血压正常  ;";
+                report += "blood pressure normal  ;";
             }
         }
 
         if (health.bloodsugar!=null) {
             float bloodsugar = Float.parseFloat(health.bloodsugar);
             if (bloodsugar<3.9){
-                report += "血糖过低  ;";
+                report += "blood sugar too low  ;";
             }else if (bloodsugar<6.1){
-                report += "血糖过高  ;";
+                report += "blood sugar too high  ;";
             }else {
-                report += "血糖正常  ;";
+                report += "normal blood sugar  ;";
             }
         }
         if (health.beat!=null) {
             float beat = Float.parseFloat(health.beat);
             if (beat<60){
-                report += "心率较慢  ;";
+                report += "Slower heart rate  ;";
             }else if (beat>100){
-                report += "心率较快  ;";
+                report += "Faster heart rate  ;";
             }else {
-                report += "心率正常  。";
+                report += "Normal heart rate  。";
             }
         }
-        if (report.equals("")) report = "您的数据不全无法评估，请点击未录入数据进行基础和进阶测试后查看测试报告";
+        if (report.equals("")) report = "Your data is incomplete and cannot be evaluated, please click on the unrecorded data to view the test report after the basic and advanced tests";
         return report;
     }
 
-    // 健康指数
+    // Health Index
     public static int healthIndex(){
         return 0;
     }
@@ -283,7 +283,7 @@ public class DataManager {
     }
 
 
-    // 搜索文章
+    // Search corresponding tips knowledge
     public static List<JSONObject> searchTipsWith(Context context,String name){
         List<String> nameList = new ArrayList<String>();
         nameList.add("rate");
@@ -307,7 +307,7 @@ public class DataManager {
     }
 
 
-    // 读取json文件
+    // 读取json文件 read json files
     public static List<JSONObject> readTipsJson(Context context,List<String> list){
         StringBuilder sb = new StringBuilder();
         AssetManager am = context.getAssets();
@@ -343,27 +343,27 @@ public class DataManager {
         return null;
     }
 
-    // 关闭键盘
+    // Close the keybroad
     public static void closeKeyboard(Window window,InputMethodManager manager) {
         View view = window.peekDecorView();
         if (view != null) {
             manager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-    // 当前日期
+    // today date
     public static String currentDate(){
         Date date = new Date(System.currentTimeMillis());
         String dateStr = new SimpleDateFormat("yyyy-M-d").format(date);
         return dateStr;
     }
 
-    // 当前时间
+    // today time
     public static String currentTime(){
         Date date = new Date(System.currentTimeMillis());
         return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date);
     }
 
-    // 判断当前日期是不是本月
+    // judge the time is in this month or not
     public static boolean isMonth(String date){
         String pre = DataManager.currentDate().substring(0,7);
         return (date.indexOf(pre) != -1);
