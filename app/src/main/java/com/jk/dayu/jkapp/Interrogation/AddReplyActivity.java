@@ -53,9 +53,9 @@ public class AddReplyActivity extends BaseActivity {
                 replyBean.setContent(reply.getText().toString());
                 String  saveResult = myThreadUtil.myThread(Service.saveReply, JSONObject.toJSONString(replyBean));
                 if (saveResult.equals("success")) {
-                    Toast.makeText(AddReplyActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddReplyActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(AddReplyActivity.this, "添加失败，请重试", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddReplyActivity.this, "Failed to add, please try again", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -80,12 +80,12 @@ public class AddReplyActivity extends BaseActivity {
         }
         UserBean userBean = parseObject(result, UserBean.class);
         if (condition != null && userBean != null) {
-            username.setText("用户姓名：" + userBean.getUsername());
-            sex.setText("用户性别：" + userBean.getSex());
-            age.setText("用户年龄：" + userBean.getAge());
-            symptom.setText("主要症状：" + condition.getSymptoms());
-            time.setText("持续时间：" + condition.getTime());
-            detial.setText("详细描述:" + condition.getDetails());
+            username.setText("User Name：" + userBean.getUsername());
+            sex.setText("User Gender：" + userBean.getSex());
+            age.setText("User age：" + userBean.getAge());
+            symptom.setText("Main symptoms：" + condition.getSymptoms());
+            time.setText("Duration：" + condition.getTime());
+            detial.setText("Detailed description:" + condition.getDetails());
         }
     }
     Runnable runnable = new Runnable(){

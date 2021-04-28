@@ -56,7 +56,7 @@ public class RegisterActivity extends BaseActivity {
                         String result = myThreadUtil.myThread(Service.verifyAccountUrl,json.toJSONString());
                         int i = Integer.parseInt(result);
                         if (i>0){
-                            Toast.makeText(RegisterActivity.this, "用户名已存在", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_LONG).show();
                             registerButton.setEnabled(false);
                             registerButton.setBackgroundResource(R.drawable.bg_login_submit_lock);
                         }else {
@@ -71,28 +71,28 @@ public class RegisterActivity extends BaseActivity {
     }
     public void register(View view) {
         if (accountTxt.getText().length()<3){
-            Toast.makeText(this, "用户名不小于3位", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "User name not less than 3 bits", Toast.LENGTH_LONG).show();
             return;
         }
         if (pwdTxt.getText().length()<6){
-            Toast.makeText(this, "密码不小于6位", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Password not less than 6 digits", Toast.LENGTH_LONG).show();
             return;
         }
         boolean b1 = StringUtil.isEmpty(sex1.toString());
         boolean b2 = StringUtil.isEmpty(sex2.toString());
         boolean b3 = StringUtil.isEmpty(sex3.toString());
         if (b1 && b2 && b3){
-            Toast.makeText(this, "请选择性别", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please select gender", Toast.LENGTH_LONG).show();
             return;
         }
         if (!StringUtil.isEmpty(ageTxt.toString())){
             int age = Integer.parseInt(ageTxt.getEditableText().toString().trim());
             if (age<0 || age>200){
-                Toast.makeText(this, "请输入正确的年龄", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please enter the correct age", Toast.LENGTH_LONG).show();
                 return;
             }
         }else {
-            Toast.makeText(this, "请输入年龄", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter your age", Toast.LENGTH_LONG).show();
             return;
         }
         String name = accountTxt.getText().toString();
@@ -117,14 +117,14 @@ public class RegisterActivity extends BaseActivity {
             DataManager.saveUser(user);
             DataManager.setParam(RegisterActivity.this,"id", id,"userInfo");
             DataManager.setParam(RegisterActivity.this,"role", id,"userInfo");
-            Toast.makeText(RegisterActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this,"register successful", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         } else if (result.equals("false")) {
-            Toast.makeText(RegisterActivity.this,"注册失败", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this,"register fail", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(RegisterActivity.this,"注册失败", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this,"register fail", Toast.LENGTH_SHORT).show();
         }
     }
 }

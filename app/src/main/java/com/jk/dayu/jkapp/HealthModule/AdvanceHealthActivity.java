@@ -70,19 +70,19 @@ public class AdvanceHealthActivity extends BaseActivity implements RadioGroup.On
 
         String tips = "";
         if (bloodsugar < 3.9) {
-            tips += "血糖过低  ";
+            tips += "Low blood sugar  ";
         } else if (bloodsugar < 6.1) {
-            tips += "血糖过高  ";
+            tips += "High blood sugar  ";
         } else {
-            tips += "血糖正常  ";
+            tips += "Normal blood sugar  ";
         }
 
         if (presslow < 60 || presshigh < 90) {
-            tips += "血压过低  ";
+            tips += "Low blood pressure  ";
         } else if (presslow > 90 || presshigh > 140) {
-            tips += "血压过高  ";
+            tips += "High blood pressure  ";
         } else {
-            tips += "血压正常  ";
+            tips += "Normal blood pressure  ";
         }
         resultView.setText(tips);
         Object param = DataManager.getParam(this, "id", "", "userInfo");
