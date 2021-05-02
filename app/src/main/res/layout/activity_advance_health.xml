@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/bg_gray"
-    tools:context="com.jk.dayu.jkapp.com.jk.Ariana.jkapp.HealthModule.AdvanceHealthActivity">
+    tools:context="com.jk.dayu.jkapp.HealthModule.AdvanceHealthActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

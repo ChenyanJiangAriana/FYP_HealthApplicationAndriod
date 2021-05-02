@@ -7,7 +7,7 @@
     android:background="#FFF"
     android:fitsSystemWindows="true"
     android:theme="@style/AppTheme"
-    tools:context="com.jk.dayu.jkapp.com.jk.Ariana.jkapp.stepModule.StepActivity">
+    tools:context="com.jk.dayu.jkapp.stepModule.StepActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
