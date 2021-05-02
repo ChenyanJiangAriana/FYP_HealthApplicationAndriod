@@ -106,7 +106,7 @@ public class HomeFragment extends Fragment {
             }
         }
 
-        // 健康提示
+        // 健康提示 health reminder
         List<TimeBean> timeList = DataManager.timeBean(getActivity());
         if (timeList==null||timeList.size()==0){
             HomeBean home = new HomeBean(HomeAdapter.TYPE_TIME,"Click here to add your reminder","");
@@ -141,10 +141,11 @@ public class HomeFragment extends Fragment {
                                            final int position, long id) {
                 if (position<=2) return true;
                 //定义AlertDialog.Builder对象，当长按列表项的时候弹出确认删除对话框
+                //Define AlertDialog.Builder object to pop up a confirmation delete dialog when long pressing a list item
                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
                 builder.setMessage("delete confirm?");
                 builder.setTitle("reminder");
-                //添加AlertDialog.Builder对象的setPositiveButton()方法
+                //Add the setPositiveButton() method of the AlertDialog.
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -161,6 +162,7 @@ public class HomeFragment extends Fragment {
                 });
 
                 //添加AlertDialog.Builder对象的setNegativeButton()方法
+                //Add the setNegativeButton() method of the AlertDialog.
                 builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {}
@@ -173,6 +175,7 @@ public class HomeFragment extends Fragment {
     }
 
     // 跳转心跳activity
+    //Jump to heartbeatactivity
     private void gotoHeartBeatAct(){
 
         if (ContextCompat.checkSelfPermission(getActivity(),
@@ -195,12 +198,14 @@ public class HomeFragment extends Fragment {
     }
 
     // 跳转记步activity
+    //Jump to step activity
     private  void gotoStepAct(){
         if(!DataManager.isLogin(getActivity())) return;
         Intent intent = new Intent(getActivity(), StepActivity.class);
         startActivity(intent);
     }
     // 跳转健康测试activity
+    //Jump to health test activity
     private  void gotoJKTest(){
         if(!DataManager.isLogin(getActivity())) return;
         Intent intent = new Intent(getActivity(), HealthSelectActivity.class);
@@ -208,6 +213,7 @@ public class HomeFragment extends Fragment {
     }
 
     // 跳转添加健康时间activity
+    //Jump to add health time activity
     private  void gotoTime(){
         if(!DataManager.isLogin(getActivity())) return;
         Intent intent = new Intent(getActivity(), AddTimeActivity.class);

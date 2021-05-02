@@ -45,7 +45,7 @@ import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * 程序的主入口
+ * 程序的主入口Main entrance of the program
  */
 public class HeartBeatActivity extends BaseActivity {
     //曲线
@@ -93,9 +93,9 @@ public class HeartBeatActivity extends BaseActivity {
         GREEN, RED
     }
 
-    //设置默认类型
+    //设置默认类型Set default type
     private static TYPE currentType = TYPE.GREEN;
-    //获取当前类型
+    //获取当前类型Get current type
     public static TYPE getCurrent() {
         return currentType;
     }

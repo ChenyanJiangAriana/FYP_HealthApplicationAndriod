@@ -18,7 +18,7 @@ public class DbUtils {
             liteOrm.setDebugged(true);
         }
     }
-    //万能查询
+    //万能查询 inquiry
     public static <T> List<T> getQueryByWhere(Class<T> tClass, List<String> queryParamList,List<String> valueList) {
         if (queryParamList.size()!=valueList.size()){
             System.out.println(queryParamList);

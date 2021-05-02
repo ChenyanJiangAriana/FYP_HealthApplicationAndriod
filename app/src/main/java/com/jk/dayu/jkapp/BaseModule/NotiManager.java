@@ -21,7 +21,7 @@ public class NotiManager {
                 .setContentTitle("health reminder")
                 .setSubText("time："+date)
                 .setSmallIcon(R.mipmap.logo)
-                .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
+                .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示//The time when the notification is generated is displayed in the notification message
                 .setContentIntent(hangPendingIntent)
                 .build();
         Log.i("time", "addAlert: "+System.currentTimeMillis());

@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         setContentView(R.layout.activity_main);
         RadioGroup rg_tab_bar = findViewById(R.id.rg_tab_bar);
         rg_tab_bar.setOnCheckedChangeListener(this);
-        //获取第一个单选按钮，并设置其为选中状态
+        //获取第一个单选按钮，并设置其为选中状态Get the first radio button and set it to the selected state
         RadioButton rb_channel = findViewById(R.id.rb_home);
         rb_channel.setChecked(true);
         DbUtils.createDb(this);
@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
 
     //隐藏所有Fragment
+    //Hide all Fragment
     private void hideAllFragment(FragmentTransaction fragmentTransaction){
         if(homeFragment != null)fragmentTransaction.hide(homeFragment);
         if(tipsFragment != null)fragmentTransaction.hide(tipsFragment);
@@ -85,6 +86,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public static MainActivity getInstance(){
         // 因为我们程序运行后，Application是首先初始化的，如果在这里不用判断instance是否为空
+        //Because after our program is run, Application is first initialized, if we do not have to determine whether instance is empty here
         return instance;
     }
 
