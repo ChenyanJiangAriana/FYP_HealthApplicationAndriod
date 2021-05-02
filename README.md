@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: img
+---
+
 
 
 
@@ -61,4 +65,50 @@ https://github.com/ChenyanJiangAriana/FYP_HealthApplication_Server
 APK:
 
 can be found in github
+
+test picture
+
+1. Login page
+
+<img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Login.png" alt="login" style="zoom:33%;" />
+
+2. main page
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Main Home.png" style="zoom:33%;" />
+
+   
+
+3. main
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Mine.png" alt="Mine" style="zoom:33%;" />
+
+4. tips
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Tips.png" alt="tips" style="zoom:33%;" />
+
+5. heat beat
+
+![heat Beat](D:\Users\jiang\HealthApp\final\jkapp (4)\img\heat Beat.png)
+
+6. advanced test 
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\basic.png" alt="health report" style="zoom:33%;" />
+
+7. foot step
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Footstep.png" alt="foot step" style="zoom:33%;" />
+
+
+
+8. doctor select
+
+<img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\Doctor list for choose.png" alt="doc" style="zoom:33%;" />
+
+9. inquiry
+
+   <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\inquiry 2.png" alt="inquiry" style="zoom:33%;" />
+
+10. inquiry 2
+
+    <img src="D:\Users\jiang\HealthApp\final\jkapp (4)\img\inquiry 2.png" alt="inquiry" style="zoom:33%;" />
 
